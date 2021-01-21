@@ -34,6 +34,13 @@ namespace Mine.ViewModels
 
                 await DeleteAsync(data);
             });
+
+            MessagingCenter.Subscribe<ItemUpdatePage, ItemModel>(this, "UpdateItem", async (obj, item) =>
+            {
+                var data = item as ItemModel;
+
+                await UpdateAsync(data);
+            });
         }
 
         /// <summary>
@@ -55,6 +62,7 @@ namespace Mine.ViewModels
         /// <returns>True if deleted</returns>
         public async Task<bool> DeleteAsync (ItemModel data)
         {
+            // Checks if the record exist, if not, null is returned.
             var record = await ReadAsync(data.Id);
             if (record == null)
             {
@@ -63,7 +71,26 @@ namespace Mine.ViewModels
 
             DataSet.Remove(data);
 
+            // Call to remove it from the Data Store
             var result = await DataStore.DeleteAsync(data.Id);
+
+            return result;
+        }
+
+        public async Task<bool> UpdateAsync (ItemModel data)
+        {
+            // Checks if the record exist, if not, null is returned.
+            var record = await ReadAsync(data.Id);
+            if (record == null)
+            {
+                return false;
+            }
+
+            // Call to update it from the Data Store
+            var result = await DataStore.UpdateAsync(data);
+
+            var canExecute = LoadItemsCommand.CanExecute(null);
+            LoadItemsCommand.Execute(null);
 
             return result;
         }
