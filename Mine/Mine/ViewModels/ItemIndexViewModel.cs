@@ -41,6 +41,11 @@ namespace Mine.ViewModels
             return result;
         }
 
+        /// <summary>
+        /// Delete the record from the system
+        /// </summary>
+        /// <param name="data">The record to be deleted</param>
+        /// <returns>True if deleted</returns>
         public async Task<bool> DeleteAsync (ItemModel data)
         {
             var record = await ReadAsync(data.Id);
