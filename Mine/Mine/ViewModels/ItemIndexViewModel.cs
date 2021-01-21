@@ -29,6 +29,13 @@ namespace Mine.ViewModels
             });
         }
 
+        public async Task<ItemModel> ReadAsync(String id)
+        {
+            var result = await DataStore.ReadAsync(id);
+
+            return result;
+        }
+
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
