@@ -28,15 +28,17 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Seattle_Redhawks_logo.svg/914px-Seattle_Redhawks_logo.svg.png"
+                           WidthRequest="100"
+                           HeightRequest="100"/>
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 <Label Text="CPSC 5250 WQ21"></Label>
-                <Label Text="Mike Koenig"></Label>
-                <Label Text="1/6/2021 - 3:40pm"></Label>
+                <Label Text="Ken Comvandee"></Label>
+                <Label Text="1/19/2021 - 04:13pm"></Label>
             </StackLayout>
         </ScrollView>
     </Grid>

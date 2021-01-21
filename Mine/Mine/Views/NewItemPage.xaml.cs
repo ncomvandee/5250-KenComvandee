@@ -13,13 +13,13 @@ namespace Mine.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public ItemModel Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new ItemModel
             {
                 Text = "Item name",
                 Description = "This is an item description."
@@ -37,6 +37,11 @@ namespace Mine.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ValueValue.Text = String.Format("{0}", e.NewValue);
         }
     }
 }
