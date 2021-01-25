@@ -68,10 +68,25 @@ namespace Mine.Services
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Read the item information from Database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>ItemModel</returns>
         public Task<ItemModel> ReadAsync(string id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+            {
+                return null;
+            }
+
+            // Call the Database to read the id
+            // Using Linq syntax, find the first record that match the id
+            var result = Database.Table<ItemModel>().FirstOrDefaultAsync(mbox => mbox.Id.Equals(id));
+
+            return result;
         }
+
 
         /// <summary>
         /// Initialize index page
