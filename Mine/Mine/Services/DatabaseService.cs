@@ -35,6 +35,11 @@ namespace Mine.Services
             }
         }
 
+        /// <summary>
+        /// Create item to Database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>True if successfully added, else return false</returns>
         public async Task<bool> CreateAsync(ItemModel item)
         {
             
@@ -43,6 +48,7 @@ namespace Mine.Services
                 return false;
             }
 
+            // Id of what was written in Database Table
             var result = await Database.InsertAsync(item);
             if (result == 0)
             {
