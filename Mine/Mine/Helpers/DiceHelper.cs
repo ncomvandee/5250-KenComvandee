@@ -10,6 +10,13 @@ namespace Mine.Helpers
 
         public static bool ForceRollsToNotRandom = false;
 
+
+
+
+
+
+
+
         public static int ForceRandomValue = 1;
 
 
