@@ -12,6 +12,11 @@ namespace Mine.Helpers
 
         public static int ForceRandomValue = 1;
 
+
+
+
+
+
         public static int RollDice(int rolls, int dice)
         {
             if (ForceRollsToNotRandom)
